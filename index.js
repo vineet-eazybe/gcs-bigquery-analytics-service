@@ -6,7 +6,10 @@ import { BigQuery } from "@google-cloud/bigquery";
 const app = express();
 app.use(bodyParser.json());
 
-const bigquery = new BigQuery();
+const bigquery = new BigQuery({
+    keyFilename: "./gcp-key.json",
+    projectId: "waba-454907",
+  });
 const datasetId = "whatsapp_analytics"; // your dataset
 const tableId = "message_events";       // your table
 
